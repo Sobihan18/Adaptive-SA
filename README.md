@@ -14,7 +14,7 @@ pip install -r requirements.txt
 ## Citations
 If you find this repository valuable for your research, please cite our work using the following references:
 
-- Surendran, S., Godichon-Baggioni, A., Fermanian, A., & Corff, S. L. (2024). Non-asymptotic Analysis of Biased Adaptive Stochastic Approximation. *arXiv preprint arXiv:2402.02857*.
+- Surendran, S., Godichon-Baggioni, A., Fermanian, A., & Le Corff S. (2024). Non-asymptotic Analysis of Biased Adaptive Stochastic Approximation. *arXiv preprint arXiv:2402.02857*.
 
 ```bibtex
   @article{surendran2024non,
