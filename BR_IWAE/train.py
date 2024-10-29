@@ -6,7 +6,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 
-from IWAE.IWAE_model import IWAE
+from BR_IWAE.model import BR_IWAE
 from outils import load_dataset
 
 
@@ -14,6 +14,8 @@ model_params = {
     'dataset': 'CIFAR10',                       # Dataset used for training
     'latent_size': 100,                         # Dimensionality of the latent space
     'K': 5,                                     # Number of variational samples used for the IWAE
+    't_0': 2,                                   # Burn-in period for MCMC
+    't_max': 5,                                 # Maximum number of MCMC steps
     'batch_size': 256                           # Size of training batches
 }
 
@@ -64,7 +66,7 @@ if __name__ == "__main__":
     for i in range(trainer_params['T']):
 
         # Initialize the model
-        model = IWAE(model_params).to(device)
+        model = BR_IWAE(model_params).to(device)
 
         # Create a dictionary to store loss values for the model
         losses_dict = {'train': [], 'test': [], 'grad_norm':[]}
@@ -93,8 +95,7 @@ if __name__ == "__main__":
                     data = data.to(device)
                 optimizer.zero_grad()
 
-                x_hat, mu, logvar, z = model(data)
-                loss = model.loss(x_hat, data, mu, logvar, z)
+                _, loss = model(data)
 
                 loss.backward()
 
@@ -124,8 +125,7 @@ if __name__ == "__main__":
                         data = data.view(-1, 784).to(device)
                     else:
                         data = data.to(device)
-                    x_hat, mu, logvar, z = model(data)
-                    loss = model.loss(x_hat, data, mu, logvar, z)
+                    _, loss = model(data)
                     test_loss += loss.item()
 
             # Calculate the average test loss for the epoch

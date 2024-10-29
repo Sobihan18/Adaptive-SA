@@ -1,7 +1,7 @@
 # Non-asymptotic Analysis of Biased Adaptive Stochastic Approximation
 
 ## Overview
-This repository contains the code and experiments related to the paper titled "Non-asymptotic Analysis of Biased Adaptive Stochastic Approximation." The paper explores theoretical results in the context of Biased Adaptive Stochastic Approximation, illustrating these results through the application of deep Variational Autoencoders (VAE). It includes implementations of the Importance Weighted Autoencoder (IWAE) using various optimization algorithms, including Adagrad, RMSProp, and Adam, on both the CIFAR-10 and Fashion-MNIST datasets.
+This repository contains the code and experiments related to the paper titled "Non-asymptotic Analysis of Biased Adaptive Stochastic Approximation." The paper explores theoretical results in the context of Biased Adaptive Stochastic Approximation, illustrating these results through the application of deep Variational Autoencoders (VAE). It includes implementations of the Importance Weighted Autoencoder (IWAE) and the Biased Reduced Importance Weighted Autoencoder (BR-IWAE) using various optimization algorithms, including Adagrad, RMSProp, and Adam, on both the CIFAR-10 and Fashion-MNIST datasets.
 
 ## Installation
 To set up the environment, install the required dependencies using the following command:
